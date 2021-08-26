@@ -3,31 +3,18 @@
   "version": "1.0.0",
   "description": "Bootstrap 5",
   "main": "index.js",
-  "scripts": {
-    "default": "gulp default",
-    "build": "gulp build",
-    "clean": "gulp clean"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robert-laws/learning-august-2021-bootstrap-5.git"
   },
   "keywords": [
-    "bootstrap",
-    "5"
+    "bootstrap 5"
   ],
   "author": "Robert Laws",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/robert-laws/learning-august-2021-bootstrap-5/issues"
   },
-  "homepage": "https://github.com/robert-laws/learning-august-2021-bootstrap-5#readme",
-  "dependencies": {
-    "bootstrap": "^5.1.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.27.5",
-    "gulp": "^4.0.2",
-    "gulp-sourcemaps": "^3.0.0"
-  }
+  "homepage": "https://github.com/robert-laws/learning-august-2021-bootstrap-5#readme"
 }
