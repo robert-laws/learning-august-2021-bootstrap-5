@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="basicToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div
+          class="
+            toast-header
+            bg-primary
+            text-light
+            d-flex
+            justify-content-between
+          "
+        >
+          <h5 class="my-0">Join the Team</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+          ratione quisquam qui.
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row gy-4">
+        <div class="col-12">
+          <div
+            class="alert alert-primary alert-dismissible fade show"
+            role="alert"
+          >
+            <h4 class="alert-heading">Important Announcement</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
+              alias delectus reiciendis.
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="button" id="toastBtn" class="btn btn-primary">
+            Learn More
+          </button>
+        </div>
+        <div class="col-12">
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              id="dropdownExample"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Select an Option from the List
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-lg-end"
+              aria-labelledby="dropdownExmaple"
+            >
+              <li>
+                <a href="#" class="dropdown-item">Option 1</a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-item">Option 2</a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-item">Option 3</a>
+              </li>
+              <li>
+                <a href="#" class="dropdown-item">Option 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // document.querySelector('#toastBtn').onclick = function () {
+      //   new bootstrap.Toast(document.querySelector('#basicToast')).show();
+      // };
+
+      let toastTrigger = document.querySelector('#toastBtn');
+      let toastContent = document.querySelector('#basicToast');
+
+      if (toastTrigger) {
+        toastTrigger.addEventListener('click', function () {
+          let toast = new bootstrap.Toast(toastContent);
+          toast.show();
+        });
+      }
+    </script>
+  </body>
+</html>

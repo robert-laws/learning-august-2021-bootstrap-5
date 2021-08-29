@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="container my-5">
+      <h1>Forms</h1>
+      <div class="row">
+        <span class="col-12">
+          <form>
+            <div class="mb-3">
+              <label for="firstName" class="form-label fw-bold"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                aria-describedby="firstNameHelp"
+              />
+              <div id="firstNameHelp" class="form-text">
+                Provide your first name
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label fw-bold">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                aria-describedby="lastNameHelp"
+              />
+              <div id="lastNameHelp" class="form-text">
+                Provide your last name
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label fw-bold"
+                >Description</label
+              >
+              <textarea
+                name="description"
+                id="description"
+                rows="3"
+                class="form-control"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="colorChoice" class="form-label fw-bold"
+                >What is your favorite color?</label
+              >
+              <select name="color" id="colorChocie" class="form-select">
+                <option selected>Choose...</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="colorRange" class="form-label fw-bold" id="colorRange"
+                >How much do you like colors?</label
+              >
+              <input
+                type="range"
+                class="form-range"
+                min="1"
+                max="10"
+                id="colorRange"
+              />
+              <div class="d-flex justify-content-between mt-0">
+                <span class="form-text fw-bold">1</span>
+                <span class="form-text fw-bold">2</span>
+                <span class="form-text fw-bold">3</span>
+                <span class="form-text fw-bold">4</span>
+                <span class="form-text fw-bold">5</span>
+                <span class="form-text fw-bold">6</span>
+                <span class="form-text fw-bold">7</span>
+                <span class="form-text fw-bold">8</span>
+                <span class="form-text fw-bold">9</span>
+                <span class="form-text fw-bold">10</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <p class="form-label">
+                <span class="fw-bold">Choose the colors you want to use</span>
+              </p>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="checkBlue"
+                /><label for="checkBlue" class="form-check-label">Blue</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="checkGreen"
+                /><label for="checkGreen" class="form-check-label">Green</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <p class="form-label">
+                <span class="fw-bold">What size do you want?</span>
+              </p>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="sizeChoice"
+                  value="small"
+                  id="radioSmall"
+                /><label for="radioSmall" class="form-check-label">Small</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="sizeChoice"
+                  value="large"
+                  id="radioLarge"
+                /><label for="radioLarge" class="form-check-label">Large</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <p class="form-label">
+                <span class="fw-bold">Add extra support?</span>
+                <div class="form-check form-switch"><input type="checkbox" class="form-check-input" id="switchSupport"><label for="switchSupport" class="form-check-label">Add Support</label></div>
+              </p>
+            </div>
+
+            <div class="mb-3 input-group">
+              <span class="input-group-text bg-info" id="basicAddOn">Add On Request</span>
+              <input type="text" class="form-control" placeholder="request">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
