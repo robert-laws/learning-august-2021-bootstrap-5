@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="container p-5">
+      <section id="questions">
+        <!-- question container -->
+        <div class="row gy-5">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="card" style="width: 30rem">
+              <!-- question header -->
+              <div id="question-1-header" class="card-header h3">
+                Question # 1
+              </div>
+              <!-- end question header -->
+
+              <!-- question question -->
+              <div id="question-1-question" class="card-body">
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+              <!-- end question question -->
+
+              <!-- question image -->
+              <img src="images/ghosts.png" alt="ghosts" />
+              <!-- end question image -->
+
+              <!-- question answers -->
+              <div class="card-body">
+                <h5 class="card-title">Select an Answer</h5>
+                <div
+                  class="btn-group-vertical w-100"
+                  role="group"
+                  aria-label="Basic outlined example"
+                  id="myButtonGroup"
+                >
+                  <button type="button" class="btn btn-outline-primary">
+                    Left
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Middle
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Right
+                  </button>
+                </div>
+              </div>
+              <!-- end question answers -->
+
+              <!-- question footer -->
+              <div class="card-footer">
+                <h4 class="h4 d-inline-block">Result:</h4>
+                <p class="h4 d-inline-block" id="question-1-result">...</p>
+              </div>
+              <!-- end question footer -->
+            </div>
+          </div>
+        </div>
+        <!-- end question container -->
+      </section>
+    </div>
+  </body>
+</html>

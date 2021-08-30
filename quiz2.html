@@ -15,108 +15,108 @@
     <title>Bootstrap 5</title>
   </head>
   <body class="bg-white">
-    <div class="container p-5">
-      <section id="questions"></section>
-      <section>
-        <div class="row gy-5">
-          <div class="col-12 d-flex justify-content-center">
-            <div class="card" style="width: 30rem">
-              <div id="question-1-header" class="card-header h3">
-                Question # 1
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-              <img src="images/ghosts.png" alt="ghosts" />
-              <div class="card-body">
-                <h5 class="card-title">Select an Answer</h5>
-                <div
-                  class="btn-group-vertical w-100"
-                  role="group"
-                  aria-label="Basic outlined example"
-                  id="myButtonGroup"
+    <header>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+          <a href="#" class="navbar-brand text-warning"> Primary Sources </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarText"
+          >
+            <div class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  <button type="button" class="btn btn-outline-primary">
-                    Left
-                  </button>
-                  <button type="button" class="btn btn-outline-primary">
-                    Middle
-                  </button>
-                  <button type="button" class="btn btn-outline-primary">
-                    Right
-                  </button>
-                </div>
-              </div>
-              <div class="card-footer">
-                <h4 class="h4">
-                  Result: <span id="question-1-answer">...</span>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 d-flex justify-content-center">
-            <div class="card" style="width: 30rem">
-              <div id="question-1-header" class="card-header h3">
-                Question # 2
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-              <img src="images/ghosts.png" alt="ghosts" />
-              <div class="card-body">
-                <h5 class="card-title">Select an Answer</h5>
-                <div
-                  class="btn-group-vertical w-100"
-                  role="group"
-                  aria-label="Basic outlined example"
-                  id="myButtonGroup"
+                  Core Concepts
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDropdown"
                 >
-                  <button type="button" class="btn btn-outline-primary">
-                    Left
-                  </button>
-                  <button type="button" class="btn btn-outline-primary">
-                    Middle
-                  </button>
-                  <button type="button" class="btn btn-outline-primary">
-                    Right
-                  </button>
-                </div>
-              </div>
-              <div class="card-footer">
-                <h4 class="h4">
-                  Result: <span id="question-1-answer">...</span>
-                </h4>
-              </div>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Primary & Secondary Sources</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Types of Primary Sources</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Finding Primary Sources</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <a class="nav-item nav-link mx-md-1" href="#">Quiz</a>
+              <a class="nav-item nav-link" href="#">Helpful Resources</a>
             </div>
           </div>
         </div>
-      </section>
+      </nav>
+    </header>
+    <div class="container p-5">
+      <div class="position-relative">
+        <div
+          style="z-index: 2"
+          class="
+            shadow-lg
+            text-center
+            position-fixed
+            top-0
+            end-0
+            mt-3
+            me-3
+            p-4
+            border border-dark
+            rounded-3
+            bg-primary
+            text-white
+          "
+        >
+          Your Score:<br /><span class="fw-bold" id="totalScore"></span>
+        </div>
+      </div>
+      <section id="questions"></section>
     </div>
     <script>
       let quiz = [
         {
           id: 1,
           question: 'What is the capital of France?',
-          image: 'ghosts.jpg',
+          image: 'ghosts.png',
           answers: ['Paris', 'London', 'Berlin', 'Madrid'],
           correctAnswer: 'Paris',
         },
         {
           id: 2,
           question: 'What is the capital of Germany?',
-          image: 'ghosts.jpg',
+          image: 'ghosts.png',
           answers: ['Paris', 'London', 'Berlin', 'Madrid'],
           correctAnswer: 'Berlin',
         },
       ];
+
+      let score = 0;
 
       // 1. set question div as global variable
       // 2. create question container with question id
@@ -124,11 +124,202 @@
       // 4. build answer list -> 4a. answer button group with answer array
       // 5. add event listener for answer list -> 5a. click event + 5b. check if answer is correct + 5c. append answer result
 
-      let questionsContainer = document.getElementById('questions');
+      const questionsContainer = document.getElementById('questions');
 
-      const createQuestionContainer = (id) => {
-        let questionContainer = document.createElement('div');
+      const createHeader = (id) => {
+        // create header and text
+        const headerContainer = document.createElement('div');
+        const headerText = document.createTextNode(`Question # ${id}`);
+
+        // question header attributes
+        headerContainer.setAttribute('class', 'card-header h3');
+        headerContainer.setAttribute('id', `question-${id}-header`);
+
+        // append question header text to question header
+        headerContainer.appendChild(headerText);
+
+        // return question header
+        return headerContainer;
       };
+
+      const createQuestion = (id, question) => {
+        // create question container, paragraph, and text
+        const questionContainer = document.createElement('div');
+        const questionParagraph = document.createElement('p');
+        const questionText = document.createTextNode(question);
+
+        // add question attributes
+        questionContainer.setAttribute('class', 'card-body');
+        questionContainer.setAttribute('id', `question-${id}-question`);
+        questionParagraph.setAttribute('class', 'card-text');
+
+        // append question text to question paragraph
+        questionParagraph.appendChild(questionText);
+        questionContainer.appendChild(questionParagraph);
+
+        return questionContainer;
+      };
+
+      const createImage = (id, image) => {
+        // create image
+        const imageContainer = document.createElement('img');
+
+        imageContainer.setAttribute('src', `images/${image}`);
+        imageContainer.setAttribute('alt', `${image.split('.')[0]}`);
+
+        return imageContainer;
+      };
+
+      const createAnswers = (id, answers) => {
+        const answersContainer = document.createElement('div');
+        const answersTitle = document.createElement('h5');
+        const answersButtonsContainer = document.createElement('div');
+
+        answers.forEach((answer) => {
+          const button = document.createElement('button');
+          const text = document.createTextNode(answer);
+          button.setAttribute('class', 'btn btn-outline-primary');
+          button.appendChild(text);
+          answersButtonsContainer.appendChild(button);
+        });
+
+        answersContainer.setAttribute('class', 'card-body');
+        answersTitle.setAttribute('class', 'card-title');
+        answersButtonsContainer.setAttribute(
+          'class',
+          'btn-group-vertical w-100'
+        );
+        answersButtonsContainer.setAttribute('id', `answers-group-${id}`);
+
+        answersContainer.appendChild(answersTitle);
+        answersContainer.appendChild(answersButtonsContainer);
+
+        return answersContainer;
+      };
+
+      const createFooter = (id) => {
+        const footerContainer = document.createElement('div');
+        const footerHeading = document.createElement('h4');
+        const footerResult = document.createElement('p');
+        footerHeading.appendChild(document.createTextNode('Result:'));
+
+        footerContainer.setAttribute('class', 'card-footer');
+        footerHeading.setAttribute('class', 'h4 d-inline-block me-1');
+        footerResult.setAttribute('class', 'h4 d-inline-block');
+        footerResult.setAttribute('id', `question-${id}-result`);
+
+        footerContainer.appendChild(footerHeading);
+        footerContainer.appendChild(footerResult);
+
+        return footerContainer;
+      };
+
+      const createQuestionContainer = (
+        header,
+        question,
+        image,
+        answers,
+        footer
+      ) => {
+        const questionContainer = document.createElement('div');
+        const questionColumn = document.createElement('div');
+        const questionCard = document.createElement('div');
+
+        questionContainer.setAttribute('class', 'row mb-5');
+        questionColumn.setAttribute(
+          'class',
+          'col-12 d-flex justify-content-center'
+        );
+        questionCard.setAttribute('class', 'card');
+        questionCard.setAttribute('style', 'width: 30rem');
+
+        questionCard.appendChild(header);
+        questionCard.appendChild(question);
+        questionCard.appendChild(image);
+        questionCard.appendChild(answers);
+        questionCard.appendChild(footer);
+
+        questionColumn.appendChild(questionCard);
+        questionContainer.appendChild(questionColumn);
+
+        return questionContainer;
+      };
+
+      const buildQuestion = (id, question, image, answers) => {
+        const header = createHeader(id);
+        const questionContent = createQuestion(id, question);
+        const imageContent = createImage(id, image);
+        const answersContent = createAnswers(id, answers);
+        const footer = createFooter(id);
+
+        const questionContainer = createQuestionContainer(
+          header,
+          questionContent,
+          imageContent,
+          answersContent,
+          footer
+        );
+
+        return questionContainer;
+      };
+
+      const updateScore = () => {
+        const totalQuestions = quiz.length;
+        const results = `${score} out of ${totalQuestions} correct`;
+
+        const scoreContainer = document.getElementById('totalScore');
+        scoreContainer.innerHTML = results;
+      };
+
+      const addAnswers = (id, answer) => {
+        let myButtons = document.querySelector(`#answers-group-${id}`);
+        myButtons.addEventListener('click', function (e) {
+          let target = e.target;
+          let message = target.innerHTML.trim().toLowerCase();
+          let correctAnswer = answer.trim().toLowerCase();
+
+          myButtons.querySelectorAll('button').forEach(function (button) {
+            if (button.innerHTML.trim().toLowerCase() === message) {
+              button.classList.add('bg-primary', 'text-white');
+            }
+            button.classList.add('disabled');
+          });
+
+          if (message === correctAnswer) {
+            const resultElement = document.getElementById(
+              `question-${id}-result`
+            );
+            const resultSpan = document.createElement('span');
+            const resultText = document.createTextNode('Correct!');
+            resultSpan.setAttribute('class', 'text-success');
+            resultSpan.appendChild(resultText);
+            resultElement.appendChild(resultSpan);
+            score++;
+            updateScore();
+          } else {
+            const resultElement = document.getElementById(
+              `question-${id}-result`
+            );
+            const resultSpan = document.createElement('span');
+            const resultText = document.createTextNode('Wrong Answer...');
+            resultSpan.setAttribute('class', 'text-danger');
+            resultSpan.appendChild(resultText);
+            resultElement.appendChild(resultSpan);
+          }
+        });
+      };
+
+      const buildQuiz = (quizData, addAnswersCallback) => {
+        quizData.forEach(({ id, question, image, answers, correctAnswer }) => {
+          const newQuestion = buildQuestion(id, question, image, answers);
+          questionsContainer.appendChild(newQuestion);
+
+          addAnswersCallback(id, correctAnswer);
+        });
+      };
+
+      buildQuiz(quiz, addAnswers);
+      updateScore();
     </script>
   </body>
 </html>
