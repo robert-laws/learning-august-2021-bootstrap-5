@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="container p-5">
+      <div class="row my-4">
+        <div class="col-6">
+          <div
+            id="radioQuestion"
+            class="btn-group-vertical w-100"
+            role="group"
+            aria-label="Selections Buttons"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="my-options"
+              id="answer-1"
+              autocomplete="off"
+            />
+            <label for="answer-1" class="btn btn-outline-primary"
+              >Option One</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="my-options"
+              id="answer-2"
+              autocomplete="off"
+            />
+            <label for="answer-2" class="btn btn-outline-primary"
+              >Option Two</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="my-options"
+              id="answer-3"
+              autocomplete="off"
+            />
+            <label for="answer-3" class="btn btn-outline-primary"
+              >Option Three</label
+            >
+            <input
+              type="radio"
+              class="btn-check"
+              name="my-options"
+              id="answer-4"
+              autocomplete="off"
+            />
+            <label for="answer-4" class="btn btn-outline-primary"
+              >Option Four</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let myQuestion = document.querySelector('#radioQuestion');
+      myQuestion.addEventListener('change', function (e) {
+        let target = e.target;
+        let message;
+        switch (target.id) {
+          case 'answer-1':
+            message = 'Answer One';
+            break;
+          case 'answer-2':
+            message = 'Answer Two';
+            break;
+          case 'answer-3':
+            message = 'Answer Three';
+            break;
+          case 'answer-4':
+            message = 'Answer Four';
+            break;
+        }
+        console.log(message);
+      });
+    </script>
+  </body>
+</html>
