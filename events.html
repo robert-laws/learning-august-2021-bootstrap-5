@@ -17,6 +17,20 @@
   <body class="bg-white">
     <div class="container p-5">
       <div class="row my-4">
+        <div class="col-md-6">
+          <div
+            class="btn-group-vertical"
+            role="group"
+            aria-label="Basic outlined example"
+            id="myButtonGroup"
+          >
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">
+              Middle
+            </button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+          </div>
+        </div>
         <div class="col-6">
           <div
             id="radioQuestion"
@@ -88,7 +102,20 @@
             message = 'Answer Four';
             break;
         }
+        console.log(target);
+      });
+
+      let myButtons = document.querySelector('#myButtonGroup');
+      myButtons.addEventListener('click', function (e) {
+        let target = e.target;
+        let message = target.innerHTML.trim().toLowerCase();
         console.log(message);
+        myButtons.querySelectorAll('button').forEach(function (button) {
+          if (button.innerHTML.trim().toLowerCase() === message) {
+            button.classList.add('bg-primary', 'text-white');
+          }
+          button.classList.add('disabled');
+        });
       });
     </script>
   </body>

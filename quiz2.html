@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="container p-5">
+      <section id="questions"></section>
+      <section>
+        <div class="row gy-5">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="card" style="width: 30rem">
+              <div id="question-1-header" class="card-header h3">
+                Question # 1
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+              <img src="images/ghosts.png" alt="ghosts" />
+              <div class="card-body">
+                <h5 class="card-title">Select an Answer</h5>
+                <div
+                  class="btn-group-vertical w-100"
+                  role="group"
+                  aria-label="Basic outlined example"
+                  id="myButtonGroup"
+                >
+                  <button type="button" class="btn btn-outline-primary">
+                    Left
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Middle
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Right
+                  </button>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="h4">
+                  Result: <span id="question-1-answer">...</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <div class="card" style="width: 30rem">
+              <div id="question-1-header" class="card-header h3">
+                Question # 2
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+              <img src="images/ghosts.png" alt="ghosts" />
+              <div class="card-body">
+                <h5 class="card-title">Select an Answer</h5>
+                <div
+                  class="btn-group-vertical w-100"
+                  role="group"
+                  aria-label="Basic outlined example"
+                  id="myButtonGroup"
+                >
+                  <button type="button" class="btn btn-outline-primary">
+                    Left
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Middle
+                  </button>
+                  <button type="button" class="btn btn-outline-primary">
+                    Right
+                  </button>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h4 class="h4">
+                  Result: <span id="question-1-answer">...</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      let quiz = [
+        {
+          id: 1,
+          question: 'What is the capital of France?',
+          image: 'ghosts.jpg',
+          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
+          correctAnswer: 'Paris',
+        },
+        {
+          id: 2,
+          question: 'What is the capital of Germany?',
+          image: 'ghosts.jpg',
+          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
+          correctAnswer: 'Berlin',
+        },
+      ];
+
+      // 1. set question div as global variable
+      // 2. create question container with question id
+      // 3. build question -> 3a. question title with question + 3b. question image with image
+      // 4. build answer list -> 4a. answer button group with answer array
+      // 5. add event listener for answer list -> 5a. click event + 5b. check if answer is correct + 5c. append answer result
+
+      let questionsContainer = document.getElementById('questions');
+
+      const createQuestionContainer = (id) => {
+        let questionContainer = document.createElement('div');
+      };
+    </script>
+  </body>
+</html>

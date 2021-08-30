@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Bootstrap 5</title>
+  </head>
+  <body class="bg-white">
+    <div class="container p-5">
+      <div id="questions" class="row my-4 gy-5">
+        <!-- <div class="col-md-6">
+          <div
+            class="btn-group-vertical"
+            role="group"
+            aria-label="Basic outlined example"
+            id="myButtonGroup"
+          >
+            <button type="button" class="btn btn-outline-primary">Left</button>
+            <button type="button" class="btn btn-outline-primary">
+              Middle
+            </button>
+            <button type="button" class="btn btn-outline-primary">Right</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script>
+      let quiz = [
+        {
+          id: 1,
+          question: 'What is the capital of France?',
+          image: 'book.jpg',
+          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
+          correctAnswer: 'Paris',
+        },
+        {
+          id: 2,
+          question: 'What is the capital of Germany?',
+          image: 'paper.jpg',
+          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
+          correctAnswer: 'Berlin',
+        },
+      ];
+
+      // 1. set question div as global variable
+      // 2. create question container with question id
+      // 3. build question -> 3a. question title with question + 3b. question image with image
+      // 4. build answer list -> 4a. answer button group with answer array
+      // 5. add event listener for answer list -> 5a. click event + 5b. check if answer is correct + 5c. append answer result
+
+      const questionsDiv = document.querySelector('#questions');
+
+      const buildQuestion = (question) => {
+        const newQuestion = document.createElement('div');
+        newQuestion.setAttribute('class', 'col-md-6');
+        const questionHeading = document.createElement('h4');
+        questionHeading.setAttribute('class', 'h4');
+        const questionText = document.createTextNode(question);
+        questionHeading.appendChild(questionText);
+
+        newQuestion.appendChild(questionHeading);
+
+        questionsDiv.appendChild(newQuestion);
+      };
+
+      const buildAnswers = (id, answers) => {
+        const newAnswer = document.createElement('div');
+        newAnswer.setAttribute('class', 'col-md-6');
+        const newAnswerList = document.createElement('div');
+        newAnswerList.setAttribute('class', 'btn-group-vertical');
+        newAnswerList.setAttribute('id', `question-${id}`);
+
+        answers.forEach((answer) => {
+          const newButton = document.createElement('button');
+          newButton.setAttribute('class', 'btn btn-outline-primary');
+          const buttonText = document.createTextNode(answer);
+          newButton.appendChild(buttonText);
+          newAnswerList.appendChild(newButton);
+        });
+
+        newAnswer.appendChild(newAnswerList);
+
+        questionsDiv.appendChild(newAnswer);
+      };
+
+      // buildQuestion('Question # 1');
+
+      const addAnswerSelect = (id, answer) => {
+        let myButtons = document.querySelector(`#question-${id}`);
+        myButtons.addEventListener('click', function (e) {
+          let target = e.target;
+          let message = target.innerHTML.trim().toLowerCase();
+          let correctAnswer = answer.trim().toLowerCase();
+
+          myButtons.querySelectorAll('button').forEach(function (button) {
+            if (button.innerHTML.trim().toLowerCase() === message) {
+              button.classList.add('bg-primary', 'text-white');
+            }
+            button.classList.add('disabled');
+          });
+
+          if (message === correctAnswer) {
+            let result = document.createElement('h5');
+            result.setAttribute('class', 'text-success');
+            const resultText = document.createTextNode('Correct!');
+            result.appendChild(resultText);
+            myButtons.appendChild(result);
+          } else {
+            let result = document.createElement('h5');
+            result.setAttribute('class', 'text-danger');
+            const resultText = document.createTextNode('Wrong Answer...');
+            result.appendChild(resultText);
+            myButtons.appendChild(result);
+          }
+        });
+      };
+
+      quiz.forEach((item) => {
+        buildQuestion(item.question);
+        buildAnswers(item.id, item.answers);
+        addAnswerSelect(item.id, item.correctAnswer);
+      });
+    </script>
+  </body>
+</html>
