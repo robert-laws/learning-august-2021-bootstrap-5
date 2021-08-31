@@ -77,23 +77,23 @@
     <div class="container p-5">
       <div class="position-relative">
         <div
-          style="z-index: 2"
           class="
-            shadow-lg
-            text-center
+            alert alert-primary
+            d-flex
+            align-items-center
             position-fixed
-            top-0
             end-0
-            mt-3
-            me-3
-            p-4
-            border border-dark
-            rounded-3
-            bg-primary
-            text-white
+            me-4
           "
+          style="width: 15rem"
+          role="alert"
         >
-          Your Score:<br /><span class="fw-bold" id="totalScore"></span>
+          <div class="icon">
+            <i class="bi bi-info-circle-fill text-primary h2 me-3"></i>
+          </div>
+          <div>
+            Your Results:<br /><span class="fw-bold" id="totalScore"></span>
+          </div>
         </div>
       </div>
       <section id="questions"></section>

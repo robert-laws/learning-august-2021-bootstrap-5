@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS & Icons-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font/bootstrap-icons.css" />
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
+
+    <title>Primary Sources</title>
+    <style>
+      .fade-in {
+        animation: fadeIn ease 1500ms;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <div class="container">
+      <!-- List group -->
+      <div class="row gy-4">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-end mt-5">
+            <button id='next-question-button' type="button" class="btn btn-primary">Next Question</button>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <hr>
+        </div>
+        <div class="col-md-12">          
+          <div class="tab-content">
+            <div class="tab-pane show active" id="q-1" role="tabpanel">Question One</div>
+            <div class="tab-pane" id="q-2" role="tabpanel">Question Two</div>
+            <div class="tab-pane" id="q-3" role="tabpanel">Question Three</div>
+            <div class="tab-pane" id="q-4" role="tabpanel">Question Four</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const nextButton = document.querySelector('#next-question-button');
+      nextButton.addEventListener('click', () => {
+        const currentTab = document.querySelector('.tab-pane.show');
+        const nextTab = currentTab.nextElementSibling;
+        if (nextTab) {
+          currentTab.classList.remove('show', 'active');
+          nextTab.classList.add('show', 'active', 'fade-in');
+        }
+      });
+    </script>
+  </body>
+</html>
