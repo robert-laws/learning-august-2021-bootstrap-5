@@ -135,23 +135,78 @@
           </div>
         </div>
       </div>
-      <section id="questions"></section>
+      <section>
+        <div class="col-md-12">
+          <div id="questions"></div>
+        </div>
+      </section>
     </div>
     <script>
       let quiz = [
         {
           id: 1,
-          question: 'What is the capital of France?',
-          image: 'ghosts.png',
-          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
-          correctAnswer: 'Paris',
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-1.png',
+          title: 'The Bolshevik revolution and Russian Civil War',
+          link: 'https://wrlc-gu.primo.exlibrisgroup.com/permalink/01WRLC_GUNIV/13v2bp2/alma991011744269704111',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Secondary Source',
         },
         {
           id: 2,
-          question: 'What is the capital of Germany?',
-          image: 'ghosts.png',
-          answers: ['Paris', 'London', 'Berlin', 'Madrid'],
-          correctAnswer: 'Berlin',
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-2.jpg',
+          title: 'The Treaty of Versailles',
+          link: 'https://www.census.gov/history/pdf/treaty_of_versailles-112018.pdf',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Primary Source',
+        },
+        {
+          id: 3,
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-3.png',
+          title:
+            'Cartoon by Illingworth on the creation of an area under Soviet influence on the European continent (16 June 1947)',
+          link: 'https://www.cvce.eu/en/obj/cartoon_by_illingworth_on_the_creation_of_an_area_under_soviet_influence_on_the_european_continent_16_june_1947-en-162b9b8d-5d49-4b39-b0ac-1df74c5de525.html',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Primary Source',
+        },
+        {
+          id: 4,
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-4.png',
+          title: 'The French Revolution : a document collection',
+          link: 'https://wrlc-gu.primo.exlibrisgroup.com/permalink/01WRLC_GUNIV/13v2bp2/alma991019254859704111',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Primary Source',
+        },
+        {
+          id: 5,
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-5.png',
+          title: 'Bismarck: a life',
+          link: 'https://wrlc-gu.primo.exlibrisgroup.com/permalink/01WRLC_GUNIV/13v2bp2/alma991033637219704111',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Secondary Source',
+        },
+        {
+          id: 6,
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-6.jpg',
+          title:
+            'Brecht’s Mother Courage and Her Children (Mutter Courage und ihre Kinder)',
+          link: 'https://journeys.dartmouth.edu/mothercourage/production-history/',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Primary Source',
+        },
+        {
+          id: 7,
+          question: 'Primary or Secondary Source?',
+          image: 'quiz-7.jpg',
+          title: 'Art under Socialist Realism : Soviet painting, 1930-1950',
+          link: 'https://wrlc-gu.primo.exlibrisgroup.com/permalink/01WRLC_GUNIV/13v2bp2/alma991000942639704111',
+          answers: ['Primary Source', 'Secondary Source'],
+          correctAnswer: 'Secondary Source',
         },
       ];
 
@@ -164,6 +219,7 @@
       // 5. add event listener for answer list -> 5a. click event + 5b. check if answer is correct + 5c. append answer result
 
       const questionsContainer = document.getElementById('questions');
+      const nextButton = document.querySelector('#next-question-button');
 
       const createHeader = (id) => {
         // create header and text
@@ -181,20 +237,29 @@
         return headerContainer;
       };
 
-      const createQuestion = (id, question) => {
+      const createQuestion = (id, question, title, link) => {
         // create question container, paragraph, and text
         const questionContainer = document.createElement('div');
         const questionParagraph = document.createElement('p');
         const questionText = document.createTextNode(question);
+        const questionLink = document.createElement('a');
+        const questionLinkText = document.createTextNode(title);
 
         // add question attributes
         questionContainer.setAttribute('class', 'card-body');
         questionContainer.setAttribute('id', `question-${id}-question`);
-        questionParagraph.setAttribute('class', 'card-text');
+        questionParagraph.setAttribute('class', 'card-text h5');
 
         // append question text to question paragraph
         questionParagraph.appendChild(questionText);
         questionContainer.appendChild(questionParagraph);
+
+        // add question link attributes
+        questionLink.setAttribute('href', link);
+        questionLink.setAttribute('target', '_blank');
+        questionLink.setAttribute('class', 'card-link fw-bold');
+        questionLink.appendChild(questionLinkText);
+        questionContainer.appendChild(questionLink);
 
         return questionContainer;
       };
@@ -205,6 +270,7 @@
 
         imageContainer.setAttribute('src', `images/${image}`);
         imageContainer.setAttribute('alt', `${image.split('.')[0]}`);
+        imageContainer.setAttribute('class', 'img-fluid');
 
         return imageContainer;
       };
@@ -254,6 +320,7 @@
       };
 
       const createQuestionContainer = (
+        id,
         header,
         question,
         image,
@@ -264,7 +331,9 @@
         const questionColumn = document.createElement('div');
         const questionCard = document.createElement('div');
 
-        questionContainer.setAttribute('class', 'row mb-5');
+        questionContainer.setAttribute('class', 'mb-5');
+        questionContainer.setAttribute('id', `q-${id}`);
+
         questionColumn.setAttribute(
           'class',
           'col-12 d-flex justify-content-center'
@@ -284,14 +353,15 @@
         return questionContainer;
       };
 
-      const buildQuestion = (id, question, image, answers) => {
+      const buildQuestion = (id, question, title, link, image, answers) => {
         const header = createHeader(id);
-        const questionContent = createQuestion(id, question);
+        const questionContent = createQuestion(id, question, title, link);
         const imageContent = createImage(id, image);
         const answersContent = createAnswers(id, answers);
         const footer = createFooter(id);
 
         const questionContainer = createQuestionContainer(
+          id,
           header,
           questionContent,
           imageContent,
@@ -349,12 +419,21 @@
       };
 
       const buildQuiz = (quizData, addAnswersCallback) => {
-        quizData.forEach(({ id, question, image, answers, correctAnswer }) => {
-          const newQuestion = buildQuestion(id, question, image, answers);
-          questionsContainer.appendChild(newQuestion);
+        quizData.forEach(
+          ({ id, question, image, title, link, answers, correctAnswer }) => {
+            const newQuestion = buildQuestion(
+              id,
+              question,
+              title,
+              link,
+              image,
+              answers
+            );
+            questionsContainer.appendChild(newQuestion);
 
-          addAnswersCallback(id, correctAnswer);
-        });
+            addAnswersCallback(id, correctAnswer);
+          }
+        );
       };
 
       buildQuiz(quiz, addAnswers);
