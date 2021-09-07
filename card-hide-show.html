@@ -13,12 +13,28 @@
     <script src="/js/bootstrap.bundle.min.js" defer></script>
 
     <title>Bootstrap 5</title>
+    <style>
+      .reveal {
+        animation-duration: 0.5s;
+        animation-name: revealCard;
+      }
+
+      @keyframes revealCard {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body class="bg-white">
     <div class="container p-5">
       <div class="row gy-5">
         <div class="col-4">
-          <div id="question-1" class="questionCard card mb-4 d-none">
+          <div id="question-1" class="questionCard card mb-4 d-none reveal">
             <div class="card-header">Desert</div>
             <img src="images/q1.jpg" alt="ghosts" class="card-img rounded-0" />
             <div class="card-body">
@@ -32,7 +48,7 @@
             </div>
             <div class="card-footer">Contact Us</div>
           </div>
-          <div id="question-2" class="questionCard card mb-4 d-none">
+          <div id="question-2" class="questionCard card mb-4 d-none reveal">
             <div class="card-header">Airport</div>
             <img src="images/q2.jpg" alt="ghosts" class="card-img rounded-0" />
             <div class="card-body">
@@ -46,7 +62,7 @@
             </div>
             <div class="card-footer">Contact Us</div>
           </div>
-          <div id="question-3" class="questionCard card mb-4 d-none">
+          <div id="question-3" class="questionCard card mb-4 d-none reveal">
             <div class="card-header">Coast</div>
             <img src="images/q3.jpg" alt="ghosts" class="card-img rounded-0" />
             <div class="card-body">
@@ -71,12 +87,21 @@
   </body>
 
   <script>
-    let currentCard = 1;
+    let currentCard = 2;
     const nextQuestionButton = document.getElementById('nextQuestionButton');
-    let cards = document.querySelectorAll('.questionCard');
-    const firstQuestion = document.getElementById('question-1');
+    const firstQuestion = document.getElementById(`question-1`);
     firstQuestion.classList.remove('d-none');
 
-    nextQuestionButton.addEventListener('click', () => {});
+    nextQuestionButton.addEventListener('click', () => {
+      let cards = document.querySelectorAll('.questionCard');
+
+      cards.forEach((card) => {
+        card.attributes.id.value === `question-${currentCard}`
+          ? card.classList.remove('d-none')
+          : card.classList.add('d-none');
+      });
+
+      currentCard++;
+    });
   </script>
 </html>
